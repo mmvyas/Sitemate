@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="main.css" />
+    <title>main page</title>
+  </head>
+  <body>
+    <div class="main">
+      <button id="click">Click me!</button>
+
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Are you sure you want to continue?</p>
+
+          <button id="confirm" onclick="handleConfirm()">Yes</button>
+          <button id="cancel" onclick="handleCancel()">Cancel</button>
+        </div>
+      </div>
+
+      <div class="result">
+        <p id="resultTxt"></p>
+      </div>
+
+      <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("click");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+          modal.style.display = "block";
+        };
+
+        span.onclick = function(e) {
+          modal.style.display = "none";
+        };
+
+        window.onclick = function(e) {
+          if (e.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+
+        function handleConfirm() {
+          document.getElementById("resultTxt").innerHTML =
+            "You just clicked Yes";
+        }
+        function handleCancel() {
+          document.getElementById("resultTxt").innerHTML =
+            "You just clicked Cancel";
+        }
+      </script>
+    </div>
+  </body>
+</html>
